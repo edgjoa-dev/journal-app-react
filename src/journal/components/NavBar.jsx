@@ -6,8 +6,8 @@ export const NavBar = ({drawerWhidth=240}) => {
         <AppBar
         position='fixed'
         sx={{
-            width: { sm: `calc(100% - ${ drawerWhidth }px)`},
-            ml:{ sm: `${ drawerWhidth }px)`}
+            width: { sm: `calc(100% - ${drawerWhidth}px)`},
+            ml:{ sm: `${drawerWhidth}px)`}
         }}
         >
             <Toolbar>
@@ -19,9 +19,10 @@ export const NavBar = ({drawerWhidth=240}) => {
                     <MenuOutlined />
                 </IconButton>
 
-                <Grid container direction='row' justifyContent='space-between' alignItems='center'>
-                    <Typography variant='h6' noWrap component='div' > Journal App </Typography>
-
+                <Grid container direction='row' justifyContent='space-between' alignItems='center'
+                sx={{ paddingLeft:{sm: '6rem'}}}
+                >
+                    <Typography variant='h6' component='div'> Journal App </Typography>
                     <IconButton color='error' >
                         <LogoutOutlined />
                     </IconButton>
