@@ -19,7 +19,6 @@ export const RegisterPage = () => {
                         </Grid>
                         <Grid item xs={12} sx={{ mt: 2 }}>
                             <TextField
-                            autoFocus= {true}
                             label="Correo"
                             type={'email'}
                             placeholder="email@google.com"

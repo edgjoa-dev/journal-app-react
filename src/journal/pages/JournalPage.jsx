@@ -1,10 +1,15 @@
 import { Typography } from '@mui/material'
 import React from 'react'
+import { JournalLayout } from '../layout/JournalLayout'
 
 export const JournalPage = () => {
     return (
-        <>
-            <Typography  variant='h1' align='center' mt={3}> Journal </Typography>
-        </>
+        <JournalLayout>
+            <Typography>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus explicabo voluptatum incidunt velit assumenda sint non sequi ex. Recusandae harum, accusamus excepturi in nemo atque! Perferendis possimus quod ratione commodi.
+            </Typography>
+
+            {/* nada selecionado */}
+        </JournalLayout>
     )
 }
