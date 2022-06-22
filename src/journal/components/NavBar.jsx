@@ -18,7 +18,6 @@ export const NavBar = ({drawerWhidth=240}) => {
                 >
                     <MenuOutlined />
                 </IconButton>
-
                 <Grid container direction='row' justifyContent='space-between' alignItems='center'
                 sx={{ paddingLeft:{sm: '6rem'}}}
                 >
@@ -26,9 +25,7 @@ export const NavBar = ({drawerWhidth=240}) => {
                     <IconButton color='error' >
                         <LogoutOutlined />
                     </IconButton>
-
                 </Grid>
-
             </Toolbar>
         </AppBar>
     )
