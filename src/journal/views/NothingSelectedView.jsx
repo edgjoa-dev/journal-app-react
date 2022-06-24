@@ -1,7 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
-export const NothingSelectedView = () => {
+
+export const NothingSelectedView = ( ) => {
 
     return (
         <Grid
@@ -10,13 +11,17 @@ export const NothingSelectedView = () => {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: 'calc(100vh - 110px)', backgroundColor: 'primary.main', borderRadius: 3 }}
+            sx={{
+            minHeight: 'calc(100vh - 110px)',
+            backgroundColor: 'primary.main',
+            borderRadius: 3
+            }}
         >
             <Grid item xs={12}>
                 <StarOutlineIcon sx={{ fontSize: 100, color: 'white' }}/>
             </Grid>
 
-            <Grid>
+            <Grid item xs={12} >
                 <Typography variant="h5" color="white">
                     Selecciona una entrada o crea una
                 </Typography>
