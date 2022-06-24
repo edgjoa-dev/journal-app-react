@@ -21,8 +21,6 @@ export const NothingSelectedView = () => {
                     Selecciona una entrada o crea una
                 </Typography>
             </Grid>
-
-
         </Grid>
     )
 }
