@@ -6,6 +6,7 @@ export const NothingSelectedView = ( ) => {
 
     return (
         <Grid
+        className="box-shadow"
         container
         spacing={ 0 }
         direction="column"
