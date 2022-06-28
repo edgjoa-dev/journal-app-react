@@ -2,8 +2,15 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
+import { useForm } from '../../hooks';
 
 export const LoginPage = () => {
+
+    const { email, password, onIputChange } = useForm({
+        email: 'edgarjoaquin@gmail.com',
+        password: 'QWEasd135',
+    })
+
     return (
         <AuthLayout title='Login' >
             <form>
@@ -15,6 +22,9 @@ export const LoginPage = () => {
                             type={'email'}
                             placeholder="email@google.com"
                             fullWidth
+                            name='email'
+                            value={ email }
+                            onChange={ onIputChange }
                         />
                         </Grid>
 
@@ -24,6 +34,9 @@ export const LoginPage = () => {
                             type='password'
                             placeholder="Enter your password"
                             fullWidth
+                            name='password'
+                            value={ password }
+                            onChange={ onIputChange }
                             />
                         </Grid>
 
