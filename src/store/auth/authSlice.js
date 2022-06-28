@@ -19,7 +19,7 @@ reducers: {
 
     },
     checkingCredentials: (state) => {
-
+        state.status= 'checking';
     }
 },
 })

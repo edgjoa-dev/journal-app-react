@@ -1,20 +1,30 @@
+import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
+import { checkingAuthentication, startGoogleSignIn } from '../../store/auth/thunks';
 
 export const LoginPage = () => {
 
-    const { email, password, onIputChange } = useForm({
+    const dispatch = useDispatch();
+
+    const { email, password, onInputChange } = useForm({
         email: 'edgarjoaquin@gmail.com',
         password: 'QWEasd135',
     })
 
     const onSubmit = (e) => {
         e.preventDefault();
+        dispatch(checkingAuthentication());
 
         console.log({email, password});
+    }
+
+    const onGoogleSignIn = () => {
+        console.log('Google auth');
+        dispatch(startGoogleSignIn());
     }
 
     return (
@@ -30,7 +40,7 @@ export const LoginPage = () => {
                             fullWidth
                             name='email'
                             value={ email }
-                            onChange={ onIputChange }
+                            onChange={ onInputChange }
                         />
                         </Grid>
 
@@ -42,7 +52,7 @@ export const LoginPage = () => {
                             fullWidth
                             name='password'
                             value={ password }
-                            onChange={ onIputChange }
+                            onChange={ onInputChange }
                             />
                         </Grid>
 
@@ -54,7 +64,7 @@ export const LoginPage = () => {
                             </Grid>
 
                             <Grid item xs={12} sm={6}>
-                                <Button variant='contained' fullWidth >
+                                <Button onClick={onGoogleSignIn} variant='contained' fullWidth >
                                     <Google/>
                                     <Typography sx={{ml: 1}}>Google</Typography>
                                 </Button>
