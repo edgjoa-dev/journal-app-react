@@ -9,11 +9,19 @@ initialState: {
     email: null,
     displayName: null,
     photoURL: null,
-
+    errorMessage: null,
 },
 reducers: {
+    login: (state, action) => {
 
+    },
+    logout: (state, payload) => {
+
+    },
+    checkingCredentials: (state) => {
+
+    }
 },
 })
 // Action creators are generated for each case reducer function
-export const { auth } = counterSlice.actions
+export const { login, logout, checkingCredentials } = authSlice.actions;
