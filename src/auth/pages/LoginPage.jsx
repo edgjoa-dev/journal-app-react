@@ -11,9 +11,15 @@ export const LoginPage = () => {
         password: 'QWEasd135',
     })
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        console.log({email, password});
+    }
+
     return (
         <AuthLayout title='Login' >
-            <form>
+            <form onSubmit={onSubmit}>
                     <Grid container padding={3}>
                         <Grid item xs={12} sx={{ mt: 2 }}>
                             <TextField
@@ -42,7 +48,7 @@ export const LoginPage = () => {
 
                         <Grid container spacing={2} sx={{mb: 2, mt: 1 }}>
                             <Grid item xs={12} sm={6}>
-                                <Button variant='contained' fullWidth >
+                                <Button type="submit" variant='contained' fullWidth >
                                     Login
                                 </Button>
                             </Grid>
