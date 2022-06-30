@@ -8,9 +8,10 @@ import { useForm } from '../../hooks';
 const formData = {
     email: 'edgarjoaquin@gmail.com',
     password: 'QWEasd135',
+    displayName: 'Edgar Joaquin Flores'
 }
 
-const formValidation = {
+const formValidations = {
     email: [ (value) => value.includes('@'), 'El correo debe contener @'],
     password: [ (value) => value.length >= 8, 'El password debe tener al menos 8 caracteres' ],
     displayName: [ (value) => value.length >= 3, 'El nombre no es valido' ]
@@ -28,7 +29,7 @@ export const RegisterPage = () => {
         password,
         passwordValid,
         onInputChange,
-    } = useForm(formData, formValidation)
+    } = useForm(formData, formValidations)
 
     const onSubmit = (e) => {
         e.preventDefault();

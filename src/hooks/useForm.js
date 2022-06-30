@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useForm = ( initialForm = {}, formValidation = {} ) => {
+export const useForm = ( initialForm = {}, formValidations = {} ) => {
 
     const [ formState, setFormState ] = useState( initialForm );
     const [formValidation, setFormValidation] = useState({});
@@ -25,8 +25,8 @@ export const useForm = ( initialForm = {}, formValidation = {} ) => {
 
         const formCheckedValues = {};
 
-        for( const formField of Object.keys(formValidation) ){
-            const [ fn, errorMessage ] = formValidation[formField];
+        for( const formField of Object.keys(formValidations) ){
+            const [ fn, errorMessage ] = formValidations[formField];
 
             formCheckedValues[ `${formField}Valid` ] = fn( formState[formField] ) ? null : errorMessage;
         }
@@ -39,5 +39,6 @@ export const useForm = ( initialForm = {}, formValidation = {} ) => {
         formState,
         onInputChange,
         onResetForm,
+        ...formValidation,
     }
 }
