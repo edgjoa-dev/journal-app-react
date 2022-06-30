@@ -28,7 +28,7 @@ export const RegisterPage = () => {
         password,
         passwordValid,
         onInputChange,
-    } = useForm(formData)
+    } = useForm(formData, formValidation)
 
     const onSubmit = (e) => {
         e.preventDefault();
