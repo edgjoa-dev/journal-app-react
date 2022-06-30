@@ -1,12 +1,26 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
+import { useForm } from '../../hooks';
+
+
+
+const formData = {
+    email: 'edgarjoaquin@gmail.com',
+    password: 'QWEasd135',
+}
 
 export const RegisterPage = () => {
+
+    const { displayName, email, password, onInputChange, formState } = useForm(formData)
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(formState);
+    }
     return (
         <AuthLayout title='Register' >
-            <form>
+            <form onSubmit={onSubmit} >
                     <Grid container padding={3}>
                         <Grid item xs={12} sx={{ mt: 2 }}>
                             <TextField
@@ -15,6 +29,9 @@ export const RegisterPage = () => {
                             type="text"
                             placeholder="Enter your name"
                             fullWidth
+                            name='displayName'
+                            value={displayName}
+                            onChange={onInputChange}
                         />
                         </Grid>
                         <Grid item xs={12} sx={{ mt: 2 }}>
@@ -23,6 +40,9 @@ export const RegisterPage = () => {
                             type={'email'}
                             placeholder="email@google.com"
                             fullWidth
+                            name='email'
+                            value={email}
+                            onChange={onInputChange}
                         />
                         </Grid>
 
@@ -32,6 +52,9 @@ export const RegisterPage = () => {
                             type='password'
                             placeholder="Enter your password"
                             fullWidth
+                            name='password'
+                            value={password}
+                            onChange={onInputChange}
                             />
                         </Grid>
 
@@ -41,12 +64,18 @@ export const RegisterPage = () => {
                             type='password'
                             placeholder="Comfirm your password"
                             fullWidth
+                            name='password'
+                            value={password}
+                            onChange={onInputChange}
                             />
                         </Grid>
 
                         <Grid container spacing={2} sx={{mb: 2, mt: 1 }}>
                             <Grid item xs={12} sm={6}>
-                                <Button variant='contained' fullWidth >
+                                <Button
+                                type='submit'
+                                variant='contained'
+                                fullWidth >
                                     Create account
                                 </Button>
                             </Grid>
