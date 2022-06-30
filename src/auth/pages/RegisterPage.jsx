@@ -10,9 +10,25 @@ const formData = {
     password: 'QWEasd135',
 }
 
+const formValidation = {
+    email: [ (value) => value.includes('@'), 'El correo debe contener @'],
+    password: [ (value) => value.length >= 8, 'El password debe tener al menos 8 caracteres' ],
+    displayName: [ (value) => value.length >= 3, 'El nombre no es valido' ]
+}
+
 export const RegisterPage = () => {
 
-    const { displayName, email, password, onInputChange, formState } = useForm(formData)
+    const {
+        formState,
+        isFormValid,
+        displayName,
+        displayNameValid,
+        email,
+        emailValid,
+        password,
+        passwordValid,
+        onInputChange,
+    } = useForm(formData)
 
     const onSubmit = (e) => {
         e.preventDefault();
