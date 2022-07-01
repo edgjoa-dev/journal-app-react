@@ -4,7 +4,7 @@ import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
-import { checkingAuthentication, startGoogleSignIn } from '../../store/auth';
+import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 import { useMemo } from 'react';
 
 export const LoginPage = () => {
@@ -17,13 +17,11 @@ export const LoginPage = () => {
         password: 'QWEasd135',
     })
 
-    const isAuthenticating = useMemo(() => status === 'checking', [status])
+    const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        dispatch(checkingAuthentication());
-
-        console.log({email, password});
+    const onSubmit = (event) => {
+        event.preventDefault();
+        dispatch(startLoginWithEmailPassword( { email, password } ));
     }
 
     const onGoogleSignIn = () => {
