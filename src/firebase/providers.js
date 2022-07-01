@@ -1,4 +1,3 @@
-import { responsiveProperty } from "@mui/material/styles/cssUtils";
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { FirebaseAuth } from "./config";
 
@@ -62,4 +61,10 @@ export const loginWithEmailPassword = async({email, password}) => {
             errorMessage: error.message
         }
     }
+}
+
+export const logutFirebase = async() => {
+
+    return await FirebaseAuth.signOut();
+
 }
