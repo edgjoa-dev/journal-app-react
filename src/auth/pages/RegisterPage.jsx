@@ -3,6 +3,8 @@ import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { startCreatingUserWithEmailPassword } from '../../store/auth/thunks';
 
 
 
@@ -20,6 +22,7 @@ const formValidations = {
 
 export const RegisterPage = () => {
 
+    const dispatch = useDispatch();
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const {
@@ -37,7 +40,9 @@ export const RegisterPage = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         setFormSubmitted(true)
-        console.log(formState);
+
+        if(!isFormValid) return;
+        dispatch(startCreatingUserWithEmailPassword(formState));
     }
     return (
         <AuthLayout title='Register' >
@@ -76,20 +81,6 @@ export const RegisterPage = () => {
                             label="Password"
                             type='password'
                             placeholder="Enter your password"
-                            fullWidth
-                            name='password'
-                            value={password}
-                            onChange={onInputChange}
-                            error={!!passwordValid && formSubmitted}
-                            helperText={passwordValid}
-                            />
-                        </Grid>
-
-                        <Grid item xs={12} sx={{ mt: 2 }}>
-                        <TextField
-                            label="Password"
-                            type='password'
-                            placeholder="Comfirm your password"
                             fullWidth
                             name='password'
                             value={password}
