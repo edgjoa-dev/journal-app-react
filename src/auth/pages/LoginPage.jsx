@@ -4,8 +4,9 @@ import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
-import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
+import { startGoogleSignIn, startLoginWithEmailPassword } from '../../store/auth';
 import { useMemo } from 'react';
+import 'animate.css';
 
 export const LoginPage = () => {
 
@@ -32,7 +33,9 @@ export const LoginPage = () => {
     return (
         <AuthLayout title='Login' >
             <form onSubmit={onSubmit}>
-                    <Grid container padding={3}>
+                    <Grid container padding={3}
+                className="animate__animated animate__fadeIn"
+                    >
                         <Grid item xs={12} sx={{ mt: 2 }}>
                             <TextField
                             autoFocus= {true}

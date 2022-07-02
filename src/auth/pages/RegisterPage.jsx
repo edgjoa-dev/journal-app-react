@@ -5,7 +5,7 @@ import { useForm } from '../../hooks';
 import { useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { startCreatingUserWithEmailPassword } from '../../store/auth/thunks';
-
+import 'animate.css';
 
 
 const formData = {
@@ -50,7 +50,10 @@ export const RegisterPage = () => {
     return (
         <AuthLayout title='Register' >
             <form onSubmit={onSubmit} >
-                    <Grid container padding={3}>
+                    <Grid container
+                    padding={3}
+                    className="animate__animated animate__fadeIn"
+                    >
                         <Grid item xs={12} sx={{ mt: 2 }}>
                             <TextField
                             autoFocus= {true}
