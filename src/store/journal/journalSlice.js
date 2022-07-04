@@ -46,6 +46,12 @@ reducers: {
         })
         state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
     },
+
+    setPhotosToActive: ( state, action )=> {
+        state.active.imageURL= [ ...state.active.imageURL, ...action.payload ]
+        state.isSaving = false;
+    },
+
     deleteNoteById: (state, action) => {
 
     },
@@ -60,5 +66,6 @@ export const {
     setSaving,
     updateNote,
     deleteNote,
-    deleteNoteById
+    deleteNoteById,
+    setPhotosToActive,
 } = journalSlice.actions;

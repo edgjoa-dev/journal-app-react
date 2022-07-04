@@ -8,20 +8,14 @@ export const fileUpload = async( file ) => {
     formData.append('file', file)
 
     try {
-
         const resp = await fetch( cloudUrl,{
             method: 'POST',
             body: formData
         })
-        console.log(resp)
 
         if(!resp.ok) throw new Error('No es posible cargar imagen');
-
         const cloudResp = await resp.json();
-        console.log({cloudResp})
-
         return cloudResp.secure_url;
-
 
     } catch (error) {
         console.log(error);
