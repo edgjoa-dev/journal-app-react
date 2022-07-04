@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { ImageGallery } from '../components/ImageGallery'
 import { setActiveNote } from '../../store/journal/journalSlice'
-import { startSaveNote } from '../../store/journal/thunks'
+import { startSaveNote, startUpLoadingFiles } from '../../store/journal/thunks'
 import { useDispatch, useSelector } from 'react-redux'
 import { SaveAltOutlined } from '@mui/icons-material'
 import { Button, Grid, IconButton, TextField, Typography } from '@mui/material'
@@ -57,8 +57,7 @@ export const NoteViews = () => {
 
     const onFileInputChange = ({target}) => {
         if(target.files === 0) return;
-        console.log('subiendo archivos');
-        //dispatch(startUpLoadingFiles(target.files));
+        dispatch(startUpLoadingFiles(target.files));
     }
 
     return (
