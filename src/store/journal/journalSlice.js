@@ -31,14 +31,20 @@ reducers: {
     setNotes: (state, action) => {
         state.notes = action.payload
     },
-    setSaving: (state, action) => {
-
+    setSaving: (state) => {
+        state.isSaving = true;
     },
     updateNote: (state, action) => {
+        state.isSaving = false;
+        state.notes = state.notes.map( note => {
 
-    },
-    deleteNote: (state, action) => {
+            if (note.id === action.payload.id) {
+                return action.payload;
+            }
 
+            return note;
+
+        })
     },
     deleteNoteById: (state, action) => {
 

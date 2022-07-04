@@ -1,9 +1,33 @@
+import React, { useEffect } from 'react'
+import { useForm } from '../../hooks/useForm'
+import { ImageGallery } from '../components/ImageGallery'
+import { useDispatch, useSelector } from 'react-redux'
 import { SaveAltOutlined } from '@mui/icons-material'
 import { Button, Grid, TextField, Typography } from '@mui/material'
-import React from 'react'
-import { ImageGallery } from '../components/ImageGallery'
+import { useMemo } from 'react'
+import { setActiveNote } from '../../store/journal/journalSlice'
+import { startSaveNote } from '../../store/journal/thunks'
 
 export const NoteViews = () => {
+
+    const dispatch = useDispatch();
+    const {active:note} = useSelector( state => state.journal );
+
+    const { body, title, date, formState, onInputChange } = useForm( note )
+
+    const dateString = useMemo( () => {
+        const newDate= new Date( date );
+        return newDate.toUTCString();
+    }, [date])
+
+    useEffect(() => {
+        dispatch( setActiveNote( formState ) )
+    }, [formState]);
+
+    const onSaveNote = () => {
+        dispatch( startSaveNote() )
+    }
+
     return (
         <Grid
         container direction='row'
@@ -15,11 +39,12 @@ export const NoteViews = () => {
         >
             <Grid item>
                 <Typography fontSize={39} fontWeight='ligth'>
-                    24 de Julio, 2022
+                    {dateString}
                 </Typography>
             </Grid>
                 <Grid item>
                     <Button
+                    onClick={onSaveNote}
                     color='primary'
                     sx={{
                         padding: 2
@@ -45,6 +70,9 @@ export const NoteViews = () => {
                                 border: 'none',
                                 mb: 1
                             }}
+                            name="title"
+                            value={title}
+                            onChange={onInputChange}
                         />
                             <TextField
                                 type='text'
@@ -53,6 +81,9 @@ export const NoteViews = () => {
                                 multiline
                                 placeholder='What´s up today!'
                                 minRows={ 10 }
+                                name="body"
+                                value={body}
+                                onChange={onInputChange}
                             />
                     </Grid>
 

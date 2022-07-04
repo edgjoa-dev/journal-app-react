@@ -4,7 +4,7 @@ import { setActiveNote } from "../../store/journal/journalSlice";
 import { TurnedInNot } from "@mui/icons-material"
 import { Grid, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 
-export const SideBarItem = ({title = '', body, id, date, imageURL}) => {
+export const SideBarItem = ({title = '', body, id, date, imageURL = []}) => {
     const dispatch = useDispatch();
 
     const onClickNote = () => {
