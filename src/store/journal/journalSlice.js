@@ -52,6 +52,13 @@ reducers: {
         state.isSaving = false;
     },
 
+    clearNotesLogout: (state) => {
+        state.isSaving = false;
+        state.messageSaved = '';
+        state.notes = [];
+        state.active = null;
+    },
+
     deleteNoteById: (state, action) => {
 
     },
@@ -64,6 +71,7 @@ export const {
     setActiveNote,
     setNotes,
     setSaving,
+    clearNotesLogout,
     updateNote,
     deleteNote,
     deleteNoteById,
