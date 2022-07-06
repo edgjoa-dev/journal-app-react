@@ -35,7 +35,6 @@ export const startLoadingNotes = () => {
         if(!uid) throw new Error('El ID del usuario no existe y deberia ser');
 
         const notes = await loadNotes(uid);
-        console.log({uid});
 
         dispatch(setNotes(notes));
     }

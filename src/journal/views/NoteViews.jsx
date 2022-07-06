@@ -35,7 +35,7 @@ export const NoteViews = () => {
     useEffect(() => {
         if ( messageSaved.length > 0 ){
             //Swal.fire('Nota actualizada', messageSaved, 'success')
-            toast.success('Nota Actualizada!',
+            toast.success('Nota Guardada!',
                 {
                     //icon: <DoneAllIcon />,
                     style: {
@@ -112,7 +112,7 @@ export const NoteViews = () => {
                         Save
                     </Button>
                     <Toaster
-                        position="top-right"
+                        position="top-center"
                         reverseOrder={false}
                     />
                 </Grid>
@@ -154,7 +154,6 @@ export const NoteViews = () => {
                             </Button>
                     </Grid>
 
-                    {/* images */}
                     <ImageGallery images={ note.imageURL }/>
         </Grid>
     )

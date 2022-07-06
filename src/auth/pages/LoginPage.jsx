@@ -30,7 +30,6 @@ export const LoginPage = () => {
     }
 
     const onGoogleSignIn = () => {
-        console.log('Google auth');
         dispatch(startGoogleSignIn());
     }
 

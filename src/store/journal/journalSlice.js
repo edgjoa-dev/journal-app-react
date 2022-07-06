@@ -8,14 +8,6 @@ initialState: {
     messageSaved: '',
     notes: [],
     active: null,
-    // active: {
-    //     id:'ASD123',
-    //     title: '',
-    //     body: '',
-    //     date: 010720221,
-    //     imageURL: [], //https//:foto1.jpg, https//:foto2.jpg, https//:foto3.jpg,
-    // },
-
 },
 reducers: {
     savingNewNote: (state) => {
