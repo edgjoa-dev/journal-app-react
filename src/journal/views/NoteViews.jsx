@@ -152,6 +152,10 @@ export const NoteViews = () => {
                                 <DeleteOutline />
                                 Borrar
                             </Button>
+                            <Toaster
+                            position="top-center"
+                            reverseOrder={false}
+                    />
                     </Grid>
 
                     <ImageGallery images={ note.imageURL }/>

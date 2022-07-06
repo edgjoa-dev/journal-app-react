@@ -4,7 +4,7 @@ import { NavBar } from '../components/NavBar';
 import { SideBar } from '../components/SideBar';
 import 'animate.css';
 
-const drawerWidth = 340;
+const drawerWidth = 350;
 
 export const JournalLayout = ({ children }) => {
 

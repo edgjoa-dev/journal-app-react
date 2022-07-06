@@ -15,7 +15,7 @@ const formData = {
 }
 
 const formValidations = {
-    email: [ (value) => value.includes('@'), 'El correo debe contener @'],
+    email: [ (value) => value.includes('@gmail.com'), 'Correo no valido'],
     password: [ (value) => value.length >= 8, 'El password debe tener al menos 8 caracteres' ],
     displayName: [ (value) => value.length >= 3, 'El nombre no es válido' ]
 }
@@ -72,7 +72,7 @@ export const RegisterPage = () => {
                             <TextField
                             label="Correo"
                             type={'email'}
-                            placeholder="email@google.com"
+                            placeholder="email@gmail.com"
                             fullWidth
                             name='email'
                             value={email}
