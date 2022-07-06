@@ -3,9 +3,9 @@ import { useMemo } from 'react'
 import { useForm } from '../../hooks/useForm'
 import { ImageGallery } from '../components/ImageGallery'
 import { setActiveNote } from '../../store/journal/journalSlice'
-import { startSaveNote, startUpLoadingFiles } from '../../store/journal/thunks'
+import { startDeleteNote, startSaveNote, startUpLoadingFiles } from '../../store/journal/thunks'
 import { useDispatch, useSelector } from 'react-redux'
-import { SaveAltOutlined } from '@mui/icons-material'
+import { DeleteOutline, SaveAltOutlined } from '@mui/icons-material'
 import { Button, Grid, IconButton, TextField, Typography } from '@mui/material'
 // import Swal from 'sweetalert2'
 // import 'sweetalert2/dist/sweetalert2.css';
@@ -60,6 +60,9 @@ export const NoteViews = () => {
         dispatch(startUpLoadingFiles(target.files));
     }
 
+    const onDelet = () => {
+        dispatch( startDeleteNote() );
+    }
     return (
         <Grid
         container direction='row'
@@ -139,6 +142,16 @@ export const NoteViews = () => {
                                 value={body}
                                 onChange={onInputChange}
                             />
+                    </Grid>
+                    <Grid container justifyContent='end'>
+                            <Button
+                            onClick={ onDelet }
+                            sx={{ mt: 2 }}
+                            color='error'
+                            >
+                                <DeleteOutline />
+                                Borrar
+                            </Button>
                     </Grid>
 
                     {/* images */}
